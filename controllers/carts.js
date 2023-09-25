@@ -1,5 +1,5 @@
-const CartModel = require("../modals/cart")
-const ProductModel = require("../modals/products")
+const CartModel = require("../models/cart")
+const ProductModel = require("../models/products")
 
 const getOneCartAllProduct = async (req, res) => {
     try {

@@ -1,5 +1,5 @@
 const cloudinary = require("../helpers/cloudinaryC");
-const ProductModel = require("../modals/products");
+const ProductModel = require("../models/products");
 const { validationResult } = require("express-validator");
 
 const getAllProducts = async (req, res) => {

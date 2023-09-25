@@ -1,8 +1,8 @@
-const UserModel = require("../modals/user");
+const UserModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
-const CartModel = require("../modals/cart");
+const CartModel = require("../models/cart");
 const { sendMailRegisterUser, sendMailUserPay } = require("../helpers/mail");
 
 const getAllUser = async (req, res) => {
@@ -18,6 +18,7 @@ const getAllUser = async (req, res) => {
 };
 
 const getOneUser = async (req, res) => {
+  console.log(req.params.id)
   const getUser = await UserModel.findOne({ _id: req.params.id });
   res.json({ msg: "Usuario encontrado", getUser });
 };
@@ -37,9 +38,9 @@ const createUser = async (req, res) => {
     const salt = await bcrypt.genSaltSync();
     body.contrasenia = await bcrypt.hash(body.contrasenia, salt);
     const user = new UserModel(body);
-    /* const cart = new CartModel();
-     cart.idUsuario = user._id;
-   user.idCart = cart._id; */
+    const cart = new CartModel();
+    cart.idUsuario = user._id;
+    user.idCart = cart._id;
  
    /*  await sendMailRegisterUser(req.body.email)  */
      //*          envia el mensaje al mail y manda al mail q carga el usuario pero no lo almacena */
