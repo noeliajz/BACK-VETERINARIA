@@ -1,5 +1,5 @@
 const transporter = require('../middleware/nodemailer');
-const { getMaxListeners } = require('../modals/user');
+const { getMaxListeners } = require('../models/user');
 
 const sendMailRegisterUser = async (toUser) => {
     await transporter.sendMail({

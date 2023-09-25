@@ -10,8 +10,8 @@ const auth = require('../middleware/auth')
 
 /* ENDPOINT */
 router.get('/logout', auth('user'), logoutUser)
-router.get('/:id', getOneUser)
-router.get('/',   getAllUser)/*  auth lo saque porque daba error luego volver a poner y preguntar */
+router.get('/:id',  getOneUser)
+router.get('/',   getAllUser)
 router.post('/', [
     check('nombre', 'El campo NOMBRE esta vacío').notEmpty(),
     check('nombre', 'El mínimo es de 3 caracteres').isLength({ min:3 }),
