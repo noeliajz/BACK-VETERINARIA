@@ -12,8 +12,8 @@ const getOneCartAllProduct = async (req, res) => {
 
 const addProductCart = async (req, res) => {
     try {
-       const getCart = await CartModel.findOne({_id: req.params.idCart}) /* Busco el carrito */
-       const getProd = await ProductModel.findOne({_id: req.params.idProd})/* busco el producto */
+       const getCart = await CartModel.findOne({_id: req.params.idCart}) 
+       const getProd = await ProductModel.findOne({_id: req.params.idProd})
       
       const prodExist = getCart.products.filter((prod) => prod._id == req.params.idProd)
 
