@@ -12,7 +12,6 @@ router.post('/', multer.single('image') ,
 [
     check('nombre', 'campo NOMBRE vacío').notEmpty(),
     check('precio', 'campo PRECIO vacío').notEmpty(),
-    check('codigo', 'campo CÓDIGO vacío').notEmpty(),
     check('descripcion', 'campo DESCRIPCIÓN vacío').notEmpty(),
     check('cantidad', 'campo CANTIDAD vacío').notEmpty()
 
@@ -21,7 +20,6 @@ router.put('/:id',
 [
     check('nombre', 'campo NOMBRE vacío').notEmpty(),
     check('precio', 'campo PRECIO vacío').notEmpty(),
-    check('codigo', 'campo CÓDIGO vacío').notEmpty()
 ], updateProduct)
 router.delete('/:id', deleteProduct)
 

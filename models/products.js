@@ -13,10 +13,6 @@ const ProductSchema = new Schema({
     type: Number,
     required: true
    },
-   codigo: {
-    type: String,
-    required: true
-   },
    cantidad: {
     type: Number,
     default: 0
