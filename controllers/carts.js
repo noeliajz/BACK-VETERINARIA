@@ -12,11 +12,12 @@ const getOneCartAllProduct = async (req, res) => {
 
 const addProductCart = async (req, res) => {
     try {
+      console.log(req.params.idCart)
        const getCart = await CartModel.findOne({_id: req.params.idCart}) 
        const getProd = await ProductModel.findOne({_id: req.params.idProd})
-      
-      const prodExist = getCart.products.filter((prod) => prod._id == req.params.idProd)
+       console.log(getCart)
 
+      const prodExist = getCart.products.filter((prod) => prod._id == req.params.idProd)
       if(prodExist.length > 0){
         return res.status(400).json({msg: 'Producto duplicado en su carrito', status: 400})
       }
