@@ -48,8 +48,8 @@ const createUser = async (req, res) => {
 
 
     await user.save();
-/*     await cart.save();
- */    
+    await cart.save();
+     
     res.status(201).json({user, status:201});
   } catch (error) {
     console.log(error);
